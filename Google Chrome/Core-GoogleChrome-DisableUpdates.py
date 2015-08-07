@@ -12,15 +12,15 @@ chromeBundleID = "com.google.Chrome"
 ksadmin = os.path.join(googleSoftwareUpdate, "Contents/MacOS/ksadmin")
 if os.path.exists(ksadmin):
     ksadminProcess = [  ksadmin, '--delete', '--productid',  chromeBundleID]
-    retcode = subprocess.call(ksadminProcess)
-    if retcode != 0:
-        print >> sys.stderr, "Warning: ksadmin exited with code %i" % retcode
-    else:
-        print "Removed Chrome from Keystone"
-else:
-    print >> sys.stderr, "Warning: %s not found" % ksadmin
-    if not os.path.exists("/Library/Google/GoogleSoftwareUpdate/TicketStore/"):
-        print >> sys.stderr, "Warning: No ticket store either."
+    subprocess.call(ksadminProcess)
+
+agentinstaller = os.path.join(googleSoftwareUpdate, "/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/Resources/install.py")
+if os.path.exists(agentinstaller):
+    agentinstallerProcess = [  agentinstaller, '--uninstall']
+    subprocess.call(agentinstallerProcess)
+
+CoreFoundation.CFPreferencesSetValue("checkInterval", 0, "Library/Preferences/com.google.Keystone.Agent", kCFPreferencesAnyUser, kCFPreferencesCurrentHost)
+CoreFoundation.CFPreferencesSynchronize("Library/Preferences/com.google.Keystone.Agent", kCFPreferencesAnyUser, kCFPreferencesCurrentHost)
 
 base_dir = os.listdir('/System/Library/User Template')
 template_dirs = [item for item in base_dir]
@@ -34,4 +34,3 @@ for folder in template_dirs:
 for folder in home_dirs:
     CoreFoundation.CFPreferencesSetValue("checkInterval", 0, "/Users/%s/Library/Preferences/com.google.Keystone.Agent" % (folder), kCFPreferencesAnyUser, kCFPreferencesCurrentHost)
     CoreFoundation.CFPreferencesSynchronize("/Users/%s/Library/Preferences/com.google.Keystone.Agent" % (folder), kCFPreferencesAnyUser, kCFPreferencesCurrentHost)
-
