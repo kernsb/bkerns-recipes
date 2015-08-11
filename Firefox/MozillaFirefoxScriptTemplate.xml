@@ -1,0 +1,10 @@
+<script>
+    <name>Core-MozillaFirefox-CustomPrefs.sh</name>
+    <category>Scripts</category>
+    <filename>Core-MozillaFirefox-CustomPrefs.sh</filename>
+    <info />
+    <notes />
+    <priority>After</priority>
+    <parameters />
+    <os_requirements />
+</script>
