@@ -1,0 +1,9 @@
+#!/bin/sh
+
+defaults write /Library/Preferences/com.microsoft.OneDrive-mac DefaultToBusinessFRE -bool True
+
+defaults write /Library/Preferences/com.microsoft.OneDrive-mac EnableAddAccounts -bool True
+
+defaults write /Library/Preferences/com.microsoft.OneDrive-mac DisablePersonalSync -bool False
+
+exit 0

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+localprefs="/Applications/Firefox.app/Contents/Resources/defaults/pref/local-settings.js"
+custprefs="/Applications/Firefox.app/Contents/Resources/mozilla.cfg"
+
+rm ${localprefs}
+rm ${custprefs}
+
+if [ ! -f "${localprefs}" ]; then
+    touch "${localprefs}"
+    echo "// Purdue IT additions" >> "${localprefs}"
+    echo "pref(\"general.config.filename\", \"mozilla.cfg\");" >> "${localprefs}"
+    echo "pref(\"general.config.obscure_value\", 0);" >> "${localprefs}"
+
+fi
+
+if [ ! -f "${custprefs}" ]; then
+    touch "${custprefs}"
+    echo "lockPref(\"app.update.auto\", true);" >> "${custprefs}"
+    echo "lockPref(\"app.update.enabled\", true);" >> "${custprefs}"
+    echo "lockPref(\"app.update.silent\", true);" >> "${custprefs}"
+    echo "lockPref(\"app.update.mode\", 0);" >> "${custprefs}"
+    echo "lockPref(\"extensions.update.enabled\", false);" >> "${custprefs}"
+    echo "lockPref(\"extensions.update.autoUpdateDefault\", false);" >> "${custprefs}"
+    echo "lockPref(\"browser.search.update\", false);" >> "${custprefs}"
+    echo "pref(\"browser.shell.checkDefaultBrowser\", false);" >> "${custprefs}"
+
+else
+	sed -i'' -e 's/^\(.*app.update.auto.*, \).*\();\)/\1true\2/' ${custprefs}
+	sed -i'' -e 's/^\(.*app.update.enabled.*, \).*\();\)/\1true\2/' ${custprefs}
+	sed -i'' -e 's/^\(.*app.update.silent.*, \).*\();\)/\1true\2/' ${custprefs}
+	sed -i'' -e 's/^\(.*app.update.mode.*, \).*\();\)/\10\2/' ${custprefs}
+
+fi
+
+exit 0

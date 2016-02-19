@@ -1,0 +1,31 @@
+<computer_group>
+    <site>
+		<id>%SITE_ID%</id>
+        <name>%SITE_NAME%</name>
+    </site>
+    <name>%SITE_NAME% : %group_name% %VERSION%</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <criterion>
+            <name>Core-MSRemoteDesktopVersion</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>less than</search_type>
+            <value>%intver%</value>
+        </criterion>
+        <criterion>
+            <name>Core-MSRemoteDesktopVersion</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>is not</search_type>
+            <value>0</value>
+        </criterion>
+        <criterion>
+            <name>Computer Group</name>
+            <priority>2</priority>
+            <and_or>and</and_or>
+            <search_type>member of</search_type>
+            <value>%SITE_NAME% : Release : Untested</value>
+        </criterion>
+    </criteria>
+</computer_group>

@@ -1,0 +1,60 @@
+<computer_extension_attribute>
+    <name>%NAME%Version</name>
+    <description />
+    <data_type>Integer</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/bash
+
+function makeIntVer()
+{
+ver="$1"
+ver=$(awk -F. ' { if ( NF == 1 ) print $0 ".0.0"; if ( NF == 2 ) print $0 ".0";  if ( NF &gt;= 3 ) print $0;} ' &lt;&lt;&lt; $ver)
+[[ -n "$2" ]] &amp;&amp; ver="$ver.$2"
+letters=( {a..z} )
+ver=$(tr '[:upper:]' '[:lower:]' &lt;&lt;&lt; $ver)
+ver=$(sed 's/[-(]/./g' &lt;&lt;&lt; $ver)
+ver=$(sed 's/[ )]//g' &lt;&lt;&lt; $ver)
+for (( i=0; i&lt;=${#letters[@]}-1; i++ ))
+do
+if [ $i -le 9 ]; then
+	ver=$(sed "s/${letters[$i]}/0$i/g" &lt;&lt;&lt; $ver)
+else
+	ver=$(sed "s/${letters[$i]}/$i/g" &lt;&lt;&lt; $ver)
+fi
+done
+ver=$(awk -v minlen="$3" -F. ' BEGIN { len = 0 } { for ( i = 1; i &lt;= NF; i++ ) { if ( length ( $i ) &gt; len ) len = length( $i ) } } END { if ( len &lt; minlen ) len = minlen; cmd = "&#37;0" len "d"; printf($1); for ( i = 2; i &lt;= NF; i++ ) printf( cmd, $i ) } ' &lt;&lt;&lt; $ver)
+echo $ver
+}
+
+
+TARGET="/Applications/Adobe Acrobat XI Pro/Adobe Acrobat Pro.app"
+VERKEY1="CFBundleShortVersionString"
+VERKEY2="CFBundleVersion"
+BUILDKEY=""
+MINPLACE=3
+
+
+version=$(defaults read "$TARGET/Contents/Info.plist" $VERKEY1)
+[[ -z "$version" ]] &amp;&amp; version=$(defaults read "$TARGET/Contents/Info.plist" $VERKEY2)
+
+if [ -n "$BUILDKEY" ]; then
+	build=$(defaults read "$TARGET/Contents/Info.plist" $BUILDKEY)
+else
+	build=""
+fi
+
+if [ -z "$version" ]; then
+	echo "&lt;result&gt;0&lt;/result&gt;"
+else
+	intver=$(makeIntVer "$version" "$build" "$MINPLACE")
+	echo "&lt;result&gt;$intver&lt;/result&gt;"
+fi
+
+exit 0
+</script>
+    </input_type>
+    <inventory_display>Extension Attributes</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

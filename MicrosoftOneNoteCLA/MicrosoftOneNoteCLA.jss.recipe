@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest OneNote 2016 multilingual update pkg, and appends the version to the end of the filename. Then, uploads to the JSS.</string>
+	<key>Identifier</key>
+	<string>com.github.kernsb.bkerns-recipes.jss.MicrosoftOneNoteCLA</string>
+	<key>Input</key>
+	<dict>
+		<key>CATEGORY</key>
+		<string>Updates</string>
+		<key>GROUP_NAME</key>
+		<string>New Deploy : %DISPLAY_NAME%</string>
+		<key>GROUP_TEMPLATE</key>
+		<string>MicrosoftOneNoteCLASmartGroupTemplate.xml</string>
+		<key>NAME</key>
+		<string>Core-MicrosoftOneNote</string>
+		<key>DISPLAY_NAME</key>
+		<string>Microsoft OneNote</string>
+		<key>OS_REQUIREMENTS</key>
+		<string>10.11.x,10.10.x</string>
+		<key>TRIGGER_NAME</key>
+		<string>MicrosoftOneNote</string>
+        <key>PATH</key>
+        <string>/Applications/Microsoft OneNote.app</string>
+		<key>POLICY_CATEGORY</key>
+		<string>New Updates</string>
+		<key>POLICY_TEMPLATE</key>
+		<string>MicrosoftOneNoteCLAPolicyTemplate.xml</string>
+		<key>SELF_SERVICE_DESCRIPTION</key>
+		<string></string>
+		<key>SELF_SERVICE_ICON</key>
+		<string>Microsoft OneNote.png</string>
+		<key>SITE_ID</key>
+		<string>1</string>
+		<key>SITE_NAME</key>
+		<string>CLA</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.download.MSOneNote2016</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked</string>
+				<key>flat_pkg_path</key>
+				<string>%pathname%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked</string>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked/Microsoft_OneNote.pkg/Payload</string>
+				<key>purge_destination</key>
+				<false/>
+			</dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>target</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked/Microsoft OneNote.app</string>
+				<key>bldkey</key>
+				<string>MicrosoftBuildNumber</string>
+			</dict>
+			<key>Processor</key>
+			<string>com.github.kernsb.bkerns-recipes.recipe.IntVerProcessor/IntVerProcessor</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>category</key>
+				<string>%CATEGORY%</string>
+				<key>extension_attributes</key>
+				<array>
+					<dict>
+						<key>ext_attribute_path</key>
+						<string>MicrosoftOneNoteCLAExtensionAttribute.xml</string>
+					</dict>
+				</array>
+				<key>groups</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>%GROUP_NAME%</string>
+						<key>smart</key>
+						<true/>
+						<key>template_path</key>
+						<string>%GROUP_TEMPLATE%</string>
+					</dict>
+				</array>
+				<key>os_requirements</key>
+				<string>%OS_REQUIREMENTS%</string>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>policy_category</key>
+				<string>%POLICY_CATEGORY%</string>
+				<key>policy_template</key>
+				<string>%POLICY_TEMPLATE%</string>
+				<key>prod_name</key>
+				<string>%NAME%</string>
+				<key>self_service_description</key>
+				<string>%SELF_SERVICE_DESCRIPTION%</string>
+				<key>self_service_icon</key>
+				<string>%SELF_SERVICE_ICON%</string>
+			</dict>
+			<key>Processor</key>
+			<string>JSSImporter</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+    			<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpacked</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

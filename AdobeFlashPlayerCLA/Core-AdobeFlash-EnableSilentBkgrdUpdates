@@ -1,0 +1,16 @@
+#!/bin/sh
+ 
+rm /Library/Application Support/Macromedia/mms.cfg
+
+if [ ! -f "/Library/Application Support/Macromedia/mms.cfg" ]; then
+	touch "/Library/Application Support/Macromedia/mms.cfg"
+	echo "AutoUpdateDisable=1" >> "/Library/Application Support/Macromedia/mms.cfg"
+	echo "SilentAutoUpdateEnable=1" >> "/Library/Application Support/Macromedia/mms.cfg"
+
+else
+	sed -i'' -e 's/^\(AutoUpdateDisable=\).*/\11/' /Library/Application\ Support/Macromedia/mms.cfg
+	sed -i'' -e 's/^\(SilentAutoUpdateEnable=\).*/\11/' /Library/Application\ Support/Macromedia/mms.cfg
+
+fi
+
+exit 0
