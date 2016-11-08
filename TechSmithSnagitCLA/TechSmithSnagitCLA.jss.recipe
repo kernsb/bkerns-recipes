@@ -8,6 +8,8 @@
 	<string>com.github.kernsb.bkerns-recipes.jss.TechSmithSnagitCLA</string>
 	<key>Input</key>
 	<dict>
+		<key>SNAGIT_KEY</key>
+		<string>fffe5400580043005a0046002d004b0043004e00380035002d00510039005a00430043002d00430035004c00320054002d0036004300370038004600</string>
 		<key>CATEGORY</key>
 		<string>Updates</string>
 		<key>GROUP_NAME</key>
@@ -20,12 +22,18 @@
 		<string>TechSmith Snagit</string>
 		<key>TRIGGER_NAME</key>
 		<string>TechSmithSnagit</string>
+		<key>OS_REQUIREMENTS</key>
+		<string>10.12.x,10.11.x,10.10.x,10.9.x</string>
+		<key>OS_REQUIREMENTS</key>
+		<string></string>
         <key>PATH</key>
-        <string>/Applications/Snagit 2.app</string>
+        <string>/Applications/Snagit.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>TechSmithSnagitCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>Snagit</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>

@@ -19,7 +19,7 @@
 		<key>DISPLAY_NAME</key>
 		<string>Microsoft Excel</string>
 		<key>OS_REQUIREMENTS</key>
-		<string>10.11.x,10.10.x</string>
+		<string>10.12.x,10.11.x,10.10.x</string>
 		<key>TRIGGER_NAME</key>
 		<string>MicrosoftExcel</string>
         <key>PATH</key>
@@ -28,6 +28,8 @@
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>MicrosoftExcelCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>Microsoft Excel</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>
@@ -74,8 +76,6 @@
 			<dict>
 				<key>target</key>
 				<string>%RECIPE_CACHE_DIR%/unpacked/Microsoft Excel.app</string>
-				<key>bldkey</key>
-				<string>MicrosoftBuildNumber</string>
 			</dict>
 			<key>Processor</key>
 			<string>com.github.kernsb.bkerns-recipes.recipe.IntVerProcessor/IntVerProcessor</string>

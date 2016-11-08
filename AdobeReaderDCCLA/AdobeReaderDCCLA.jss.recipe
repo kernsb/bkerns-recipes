@@ -21,11 +21,13 @@
 		<key>TRIGGER_NAME</key>
 		<string>AdobeAcrobatReaderDC</string>
 		<key>OS_REQUIREMENTS</key>
-		<string>10.11.x,10.10.x,10.9.x</string>
+		<string>10.12.x,10.11.x,10.10.x,10.9.x</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>AdobeReaderDCCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>AdobeReader</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string>Views, prints, and comments on PDF documents, and connects to Adobe Document Cloud.</string>
 		<key>SELF_SERVICE_ICON</key>

@@ -20,6 +20,8 @@
 		<string>Adobe Flash Player</string>
 		<key>TRIGGER_NAME</key>
 		<string>AdobeFlashPlayer</string>
+		<key>OS_REQUIREMENTS</key>
+		<string></string>
         <key>PATH</key>
         <string>/Library/Internet Plug-Ins/Flash Player.plugin</string>
 		<key>POLICY_CATEGORY</key>

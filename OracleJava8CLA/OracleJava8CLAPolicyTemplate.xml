@@ -46,6 +46,19 @@
     </package_configuration>
     <scripts>
         <!--Scripts added by JSSImporter-->
+    	<script>
+      		<id>196</id>
+      		<name>Core-OS-KillProcess</name>
+      		<priority>Before</priority>
+      		<parameter4>Firefox</parameter4>
+      		<parameter5>Google Chrome</parameter5>
+      		<parameter6>Safari</parameter6>
+      		<parameter7/>
+      		<parameter8/>
+      		<parameter9/>
+      		<parameter10/>
+      		<parameter11/>
+    	</script>
     </scripts>
     <self_service>
         <!--Icons added by JSSImporter-->

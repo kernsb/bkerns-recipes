@@ -20,12 +20,16 @@
 		<string>Mozilla Firefox</string>
 		<key>TRIGGER_NAME</key>
 		<string>MozillaFirefox</string>
+		<key>OS_REQUIREMENTS</key>
+		<string></string>
         <key>PATH</key>
         <string>/Applications/Firefox.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>MozillaFirefoxCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>Firefox</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>

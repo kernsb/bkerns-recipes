@@ -22,12 +22,16 @@
 		<string>Mozilla Firefox ESR</string>
 		<key>TRIGGER_NAME</key>
 		<string>MozillaFirefoxESR</string>
+		<key>OS_REQUIREMENTS</key>
+		<string></string>
         <key>PATH</key>
         <string>/Applications/Firefox.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>MozillaFirefoxESRCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>Firefox</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>

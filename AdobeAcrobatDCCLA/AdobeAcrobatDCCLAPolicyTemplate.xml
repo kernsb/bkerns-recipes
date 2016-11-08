@@ -1,29 +1,33 @@
 <policy>
     <general>
-        <site>
-            <id>%SITE_ID%</id>
-            <name>%SITE_NAME%</name>
-        </site>
         <name>CLA : New Update : %DISPLAY_NAME% %VERSION%</name>
         <enabled>false</enabled>
-        <trigger>CHECKIN</trigger>
-        <trigger_checkin>true</trigger_checkin>
+		<trigger>EVENT</trigger>
+		<trigger_checkin>true</trigger_checkin>
+		<trigger_enrollment_complete>false</trigger_enrollment_complete>
+		<trigger_login>false</trigger_login>
+		<trigger_logout>false</trigger_logout>
+		<trigger_network_state_changed>false</trigger_network_state_changed>
+		<trigger_startup>false</trigger_startup>
         <trigger_other>%SITE_NAME%Update%TRIGGER_NAME%</trigger_other>
-        <frequency>Ongoing</frequency>
+		<frequency>Ongoing</frequency>
+		<location_user_only>false</location_user_only>
+		<target_drive>/</target_drive>
+		<offline>false</offline>
         <category>
             <name>%POLICY_CATEGORY%</name>
         </category>
-    	<date_time_limitations>
-      		<activation_date/>
-      		<activation_date_epoch>0</activation_date_epoch>
-      		<activation_date_utc/>
-      		<expiration_date/>
-      		<expiration_date_epoch>0</expiration_date_epoch>
-      		<expiration_date_utc/>
-      		<no_execute_on/>
-      		<no_execute_start>6:00 AM</no_execute_start>
-      		<no_execute_end>11:59 PM</no_execute_end>
-    	</date_time_limitations>
+		<date_time_limitations>
+			<activation_date/>
+			<activation_date_epoch>0</activation_date_epoch>
+			<activation_date_utc/>
+			<expiration_date/>
+			<expiration_date_epoch>0</expiration_date_epoch>
+			<expiration_date_utc/>
+			<no_execute_on/>
+			<no_execute_start>6:00 AM</no_execute_start>
+			<no_execute_end>11:59 PM</no_execute_end>
+		</date_time_limitations>
 		<network_limitations>
 			<minimum_network_connection>No Minimum</minimum_network_connection>
 			<any_ip_address>true</any_ip_address>
@@ -36,16 +40,48 @@
 			<sus>default</sus>
 			<netboot_server>current</netboot_server>
 		</override_default_settings>
-    	<network_requirements>Any</network_requirements>
+		<network_requirements>Any</network_requirements>
+        <site>
+            <id>%SITE_ID%</id>
+            <name>%SITE_NAME%</name>
+        </site>
     </general>
     <scope>
         <!--Scope added by JSSImporter-->
+    	<exclusions>
+      		<computers/>
+      		<computer_groups>
+        		<computer_group>
+          			<id>1200</id>
+          			<name>CLA : Collection : OS &lt; 10.9</name>
+        		</computer_group>
+      		</computer_groups>
+      		<buildings/>
+      		<departments/>
+      		<users/>
+      		<user_groups/>
+      		<network_segments/>
+      		<ibeacons/>
+    	</exclusions>
     </scope>
     <package_configuration>
         <!--Package added by JSSImporter-->
     </package_configuration>
     <scripts>
         <!--Scripts added by JSSImporter-->
+    	<script>
+      		<id>196</id>
+      		<name>Core-OS-KillProcess</name>
+      		<priority>Before</priority>
+      		<parameter4>%PROCESS_NAME%</parameter4>
+      		<parameter5/>
+      		<parameter6/>
+      		<parameter7/>
+      		<parameter8/>
+      		<parameter9/>
+      		<parameter10/>
+      		<parameter11/>
+    	</script>
     </scripts>
     <self_service>
         <!--Icons added by JSSImporter-->

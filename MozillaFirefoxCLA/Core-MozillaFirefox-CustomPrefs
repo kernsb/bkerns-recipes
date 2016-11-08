@@ -16,7 +16,7 @@ fi
 
 if [ ! -f "${custprefs}" ]; then
     touch "${custprefs}"
-    echo "lockPref(\"app.update.auto\", true);" >> "${custprefs}"
+    echo "lockPref(\"app.update.auto\", false);" >> "${custprefs}"
     echo "lockPref(\"app.update.enabled\", true);" >> "${custprefs}"
     echo "lockPref(\"app.update.silent\", true);" >> "${custprefs}"
     echo "lockPref(\"app.update.mode\", 0);" >> "${custprefs}"
@@ -26,11 +26,13 @@ if [ ! -f "${custprefs}" ]; then
     echo "pref(\"browser.shell.checkDefaultBrowser\", false);" >> "${custprefs}"
 
 else
-	sed -i'' -e 's/^\(.*app.update.auto.*, \).*\();\)/\1true\2/' ${custprefs}
+	sed -i'' -e 's/^\(.*app.update.auto.*, \).*\();\)/\1false\2/' ${custprefs}
 	sed -i'' -e 's/^\(.*app.update.enabled.*, \).*\();\)/\1true\2/' ${custprefs}
 	sed -i'' -e 's/^\(.*app.update.silent.*, \).*\();\)/\1true\2/' ${custprefs}
 	sed -i'' -e 's/^\(.*app.update.mode.*, \).*\();\)/\10\2/' ${custprefs}
 
 fi
+
+chmod -R 777 /Applications/Firefox.app
 
 exit 0

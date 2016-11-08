@@ -20,12 +20,16 @@
 		<string>Microsoft Office 2011</string>
 		<key>TRIGGER_NAME</key>
 		<string>MicrosoftOffice2011</string>
+		<key>OS_REQUIREMENTS</key>
+		<string></string>
         <key>PATH</key>
         <string>/Applications/Microsoft Office 2011/Microsoft Word.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>MicrosoftOffice2011CLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>MULTIPLE</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>
@@ -101,8 +105,6 @@
 			<dict>
 				<key>target</key>
 				<string>%RECIPE_CACHE_DIR%/unpacked/Applications/Microsoft Office 2011/Microsoft Word.app</string>
-				<key>bldkey</key>
-				<string>MicrosoftBuildNumber</string>
 			</dict>
 			<key>Processor</key>
 			<string>com.github.kernsb.bkerns-recipes.recipe.IntVerProcessor/IntVerProcessor</string>
@@ -131,7 +133,7 @@
 					</dict>
 				</array>
 				<key>pkg_path</key>
-				<string>%target%</string>
+				<string>%flat_pkg_path%</string>
 				<key>policy_category</key>
 				<string>%POLICY_CATEGORY%</string>
 				<key>policy_template</key>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest Audacity disk image.</string>
+	<key>Identifier</key>
+	<string>com.github.kernsb.bkerns-recipes.download.AudacityCLA</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Audacity</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.0</string>
+	<key>Process</key>
+	<array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>url</key>
+                <string>http://www.audacityteam.org/download/mac/</string>
+                <key>re_pattern</key>
+                <string>&lt;a href="(http:\/\/www.fosshub.com\/Audacity.html\/audacity-macosx-ub-\d+.\d+.\d+.dmg)"&gt;</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+        </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%match%</string>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>request_headers</key>
+				<dict>
+					<key>Accept</key>
+					<string>*/*</string>
+					<key>User-Agent</key>
+					<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36</string>
+					<key>Referer</key>
+					<string>https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.fosshub.com</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>http://www.fosshub.com/Audacity.html/audacity-macosx-ub-2.1.2.dmg

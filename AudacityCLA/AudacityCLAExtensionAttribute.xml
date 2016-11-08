@@ -1,5 +1,5 @@
 <computer_extension_attribute>
-    <name>Core-MSRemoteDesktopVersion</name>
+    <name>%NAME%Version</name>
     <description />
     <data_type>Integer</data_type>
     <input_type>
@@ -28,18 +28,13 @@ ver=$(awk -v minlen="$3" -F. ' BEGIN { len = 0 } { for ( i = 1; i &lt;= NF; i++ 
 echo $ver
 }
 
-if [ -d "/Applications/MicrosoftRemoteDesktop.app" ]; then
-	TARGET="/Applications/MicrosoftRemoteDesktop.app"
-elif [ -d "/Applications/Microsoft Remote Desktop.app" ]; then
-	TARGET="/Applications/Microsoft Remote Desktop.app"
-else
-	TARGET="%PATH%"
-fi
 
+TARGET="%PATH%"
 VERKEY1="CFBundleShortVersionString"
 VERKEY2="CFBundleVersion"
-BUILDKEY=""
+BUILDKEY="MicrosoftBuildNumber"
 MINPLACE=3
+
 
 version=$(defaults read "$TARGET/Contents/Info.plist" $VERKEY1)
 [[ -z "$version" ]] &amp;&amp; version=$(defaults read "$TARGET/Contents/Info.plist" $VERKEY2)

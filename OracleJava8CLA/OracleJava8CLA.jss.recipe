@@ -20,12 +20,16 @@
 		<string>Oracle Java 8</string>
 		<key>TRIGGER_NAME</key>
 		<string>OracleJava8</string>
+		<key>OS_REQUIREMENTS</key>
+		<string>10.12.x,10.11.x,10.10.x,10.9.x,10.8.x</string>
         <key>PATH</key>
         <string>/Library/Internet Plug-Ins/JavaAppletPlugin.plugin</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>OracleJava8CLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>MULTIPLE</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>
@@ -49,6 +53,17 @@
 			</dict>
 			<key>Processor</key>
 			<string>com.github.kernsb.bkerns-recipes.recipe.IntVerProcessor/IntVerProcessor</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source</key>
+				<string>%pkg_path%</string>
+				<key>target</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>FileMover</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -82,6 +97,8 @@
                         <string>OracleJava8CLAScriptTemplate.xml</string>
                     </dict>
                 </array>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
 				<key>policy_category</key>
 				<string>%POLICY_CATEGORY%</string>
 				<key>policy_template</key>

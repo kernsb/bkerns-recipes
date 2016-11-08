@@ -40,12 +40,40 @@
     </general>
     <scope>
         <!--Scope added by JSSImporter-->
+    	<exclusions>
+      		<computers/>
+      		<computer_groups>
+        		<computer_group>
+          			<id>1200</id>
+          			<name>CLA : Collection : OS &lt; 10.9</name>
+        		</computer_group>
+      		</computer_groups>
+      		<buildings/>
+      		<departments/>
+      		<users/>
+      		<user_groups/>
+      		<network_segments/>
+      		<ibeacons/>
+    	</exclusions>
     </scope>
     <package_configuration>
         <!--Package added by JSSImporter-->
     </package_configuration>
     <scripts>
         <!--Scripts added by JSSImporter-->
+    	<script>
+      		<id>196</id>
+      		<name>Core-OS-KillProcess</name>
+      		<priority>Before</priority>
+      		<parameter4>%PROCESS_NAME%</parameter4>
+      		<parameter5/>
+      		<parameter6/>
+      		<parameter7/>
+      		<parameter8/>
+      		<parameter9/>
+      		<parameter10/>
+      		<parameter11/>
+    	</script>
     </scripts>
     <self_service>
         <!--Icons added by JSSImporter-->

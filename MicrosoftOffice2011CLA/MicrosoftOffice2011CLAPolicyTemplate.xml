@@ -46,6 +46,19 @@
     </package_configuration>
     <scripts>
         <!--Scripts added by JSSImporter-->
+    	<script>
+      		<id>196</id>
+      		<name>Core-OS-KillProcess</name>
+      		<priority>Before</priority>
+      		<parameter4>Microsoft Excel</parameter4>
+      		<parameter5>Microsoft Outlook</parameter5>
+      		<parameter6>Microsoft PowerPoint</parameter6>
+      		<parameter7>Microsoft Word</parameter7>
+      		<parameter8/>
+      		<parameter9/>
+      		<parameter10/>
+      		<parameter11/>
+    	</script>
     </scripts>
     <self_service>
         <!--Icons added by JSSImporter-->

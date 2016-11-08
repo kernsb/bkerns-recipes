@@ -20,12 +20,16 @@
 		<string>Microsoft Skype</string>
 		<key>TRIGGER_NAME</key>
 		<string>MicrosoftSkype</string>
+		<key>OS_REQUIREMENTS</key>
+		<string>10.12.x,10.11.x,10.10.x,10.9.x</string>
         <key>PATH</key>
         <string>/Applications/Skype.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>MicrosoftSkypeCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>Skype</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>

@@ -23,11 +23,13 @@
 		<key>TRIGGER_NAME</key>
 		<string>AdobeAcrobatProXI</string>
 		<key>OS_REQUIREMENTS</key>
-		<string>10.11.x,10.10.x,10.9.x</string>
+		<string></string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>AdobeAcrobatXICLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>AdobeAcrobat</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string>Adobe Acrobat XI Pro is a popular PDF editor and converter developed by Adobe.</string>
 		<key>SELF_SERVICE_ICON</key>

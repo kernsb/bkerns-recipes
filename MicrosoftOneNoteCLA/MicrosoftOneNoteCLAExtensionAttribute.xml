@@ -32,7 +32,7 @@ echo $ver
 TARGET="%PATH%"
 VERKEY1="CFBundleShortVersionString"
 VERKEY2="CFBundleVersion"
-BUILDKEY="MicrosoftBuildNumber"
+BUILDKEY=""
 MINPLACE=3
 
 

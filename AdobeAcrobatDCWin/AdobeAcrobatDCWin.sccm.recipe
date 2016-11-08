@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads Adobe Acrobat DC Updater and extracts the embedded package, uploads for SCCM Processing.</string>
+	<key>Identifier</key>
+	<string>com.github.kernsb.bkerns-recipes.sccm.AdobeAcrobatDCWin</string>
+	<key>Input</key>
+	<dict>
+		<key>prefix</key>
+		<string>Liberal Arts</string>
+		<key>prod_name</key>
+		<string>Acrobat DC</string>
+		<key>display_name</key>
+		<string>Acrobat Pro DC</string>
+		<key>file_name</key>
+		<string>AcrobatProDC</string>
+		<key>publisher</key>
+		<string>Adobe</string>
+		<key>description</key>
+		<string>Acrobat Pro DC is Adobe's PDF solution to view, convert, sign, send, and manage PDF documents.</string>
+		<key>creator</key>
+		<string>bkerns</string>
+		<key>file_fldr_name</key>
+		<string>Acrobat.exe</string>
+		<key>file_fldr_path</key>
+		<string>C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\</string>
+		<key>is_64_bit</key>
+		<string>0</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.kernsb.bkerns-recipes.download.AdobeAcrobatDCWin</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>SCCMPrimer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

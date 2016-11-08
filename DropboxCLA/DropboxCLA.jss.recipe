@@ -20,12 +20,16 @@
 		<string>Dropbox</string>
 		<key>TRIGGER_NAME</key>
 		<string>Dropbox</string>
+		<key>OS_REQUIREMENTS</key>
+		<string></string>
         <key>PATH</key>
         <string>/Applications/Dropbox.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>DropboxCLAPolicyTemplate.xml</string>
+		<key>PROCESS_NAME</key>
+		<string>Dropbox</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_ICON</key>
