@@ -15,15 +15,15 @@
 		<key>GROUP_TEMPLATE</key>
 		<string>MicrosoftOneDriveBizCLASmartGroupTemplate.xml</string>
 		<key>NAME</key>
-		<string>CLA-MicrosoftOneDrive</string>
+		<string>Core-MicrosoftOneDriveBiz</string>
 		<key>DISPLAY_NAME</key>
-		<string>Microsoft OneDrive</string>
+		<string>Microsoft OneDrive for Business</string>
 		<key>TRIGGER_NAME</key>
-		<string>MicrosoftOneDrive</string>
+		<string>MicrosoftOneDriveBiz</string>
         <key>PATH</key>
         <string>/Applications/OneDrive.app</string>
 		<key>OS_REQUIREMENTS</key>
-		<string>10.12.x,10.11.x,10.10.x,10.9.x</string>
+		<string>10.13.x,10.12.x,10.11.x,10.10.x,10.9.x</string>
 		<key>POLICY_CATEGORY</key>
 		<string>New Updates</string>
 		<key>POLICY_TEMPLATE</key>
@@ -42,9 +42,44 @@
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.nmcspadden.pkg.appstore</string>
+	<string>com.github.apettinen.download.MSOneDrive</string>
 	<key>Process</key>
 	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+				<key>flat_pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%filename%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+			</dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/OneDrive.pkg/Payload</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/OneDrive.pkg.unpacked/</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/OneDrive.pkg.unpacked/OneDrive.app/Contents/Info.plist</string>
+            </dict>
+        </dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
@@ -53,6 +88,17 @@
 			</dict>
 			<key>Processor</key>
 			<string>com.github.kernsb.bkerns-recipes.recipe.IntVerProcessor/IntVerProcessor</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/%filename%</string>
+				<key>target</key>
+				<string>%RECIPE_CACHE_DIR%/Core-MicrosoftOneDriveBiz-%version%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>FileMover</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -98,6 +144,8 @@
 				<string>%SELF_SERVICE_DESCRIPTION%</string>
 				<key>self_service_icon</key>
 				<string>%SELF_SERVICE_ICON%</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/Core-MicrosoftOneDriveBiz-%version%.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>JSSImporter</string>

@@ -1,9 +1,17 @@
 #!/bin/sh
 
+# App Store Version
 defaults write /Library/Preferences/com.microsoft.OneDrive-mac DefaultToBusinessFRE -bool True
-
 defaults write /Library/Preferences/com.microsoft.OneDrive-mac EnableAddAccounts -bool True
-
 defaults write /Library/Preferences/com.microsoft.OneDrive-mac DisablePersonalSync -bool False
+defaults write /Library/Preferences/com.microsoft.OneDrive-mac TeamSiteSyncPreview -bool True
+
+# Stand alone version
+defaults write /Library/Preferences/com.microsoft.OneDrive DefaultToBusinessFRE -bool True
+defaults write /Library/Preferences/com.microsoft.OneDrive EnableAddAccounts -bool True
+defaults write /Library/Preferences/com.microsoft.OneDrive DisablePersonalSync -bool False
+defaults write /Library/Preferences/com.microsoft.OneDrive TeamSiteSyncPreview -bool True
+
+defaults write /Library/Preferences/com.microsoft.OneDriveUpdate Tier Team
 
 exit 0

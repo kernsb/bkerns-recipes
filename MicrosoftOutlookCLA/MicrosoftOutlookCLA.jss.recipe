@@ -19,7 +19,7 @@
 		<key>DISPLAY_NAME</key>
 		<string>Microsoft Outlook</string>
 		<key>OS_REQUIREMENTS</key>
-		<string>10.12.x,10.11.x,10.10.x</string>
+		<string>10.13.x,10.12.x,10.11.x,10.10.x</string>
 		<key>TRIGGER_NAME</key>
 		<string>MicrosoftOutlook</string>
         <key>PATH</key>
@@ -74,6 +74,26 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpacked/Microsoft Outlook.app/Contents/Info.plist</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source</key>
+				<string>%pathname%</string>
+				<key>target</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/Core-MicrosoftOutlook-%version%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>FileMover</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>target</key>
 				<string>%RECIPE_CACHE_DIR%/unpacked/Microsoft Outlook.app</string>
 			</dict>
@@ -106,7 +126,7 @@
 				<key>os_requirements</key>
 				<string>%OS_REQUIREMENTS%</string>
 				<key>pkg_path</key>
-				<string>%pathname%</string>
+				<string>%RECIPE_CACHE_DIR%/downloads/Core-MicrosoftOutlook-%version%.pkg</string>
 				<key>policy_category</key>
 				<string>%POLICY_CATEGORY%</string>
 				<key>policy_template</key>
