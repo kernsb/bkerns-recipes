@@ -29,15 +29,15 @@ echo $ver
 }
 
 
-TARGET="%PATH%"
+TARGET="/Applications/Snagit"
 VERKEY1="CFBundleShortVersionString"
 VERKEY2="CFBundleVersion"
 BUILDKEY=""
 MINPLACE=3
 
 
-version=$(defaults read "$TARGET/Contents/Info.plist" $VERKEY1)
-[[ -z "$version" ]] &amp;&amp; version=$(defaults read "$TARGET/Contents/Info.plist" $VERKEY2)
+version=$(defaults read ${TARGET}*.app/Contents/Info.plist $VERKEY1)
+[[ -z "$version" ]] &amp;&amp; version=$(defaults read ${TARGET}*.app/Contents/Info.plist $VERKEY2)
 
 if [ -n "$BUILDKEY" ]; then
 	build=$(defaults read "$TARGET/Contents/Info.plist" $BUILDKEY)
